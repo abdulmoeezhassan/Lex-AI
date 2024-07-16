@@ -10,12 +10,12 @@ export const AboutUs = () => {
         {aboutUsContent.map((section, index) => (
           <div
             key={index}
-            className="about-us-section bg-gray-800 rounded-lg shadow-lg mb-6 p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-1"
+            className="about-us-section bg-white rounded-lg shadow-lg mb-6 p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-1"
           >
-            <h2 className="text-white font-bold text-2xl mb-4">{section.title}</h2>
+            <h2 className="text-black font-bold text-2xl mb-4">{section.title}</h2>
             <div
               dangerouslySetInnerHTML={{ __html: section.text }}
-              className="text-white text-lg leading-relaxed"
+              className="text-black text-lg leading-relaxed"
             />
           </div>
         ))}
