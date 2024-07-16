@@ -2,31 +2,31 @@ import React,{useEffect} from "react";
 import { NavbarItems } from "../../constants/navbar";
 
 export const Navbar = () => {
-  useEffect(() => {
-    const CLIENT_ID = process.env.CLIENT_ID;
-    const initializeGoogleSignIn = () => {
-      window.gapi.load('auth2', () => {
-        const auth2 = window.gapi.auth2.init({
-          client_id: CLIENT_ID,
-          scope: 'profile email'
-        });
+  // useEffect(() => {
+  // //   const CLIENT_ID = process.env.CLIENT_ID;
+  // //   const initializeGoogleSignIn = () => {
+  // //     window.gapi.load('auth2', () => {
+  // //       const auth2 = window.gapi.auth2.init({
+  // //         client_id: CLIENT_ID,
+  // //         scope: 'profile email'
+  // //       });
 
-        auth2.attachClickHandler(document.getElementById('googleSignInBtn'), {}, (googleUser) => {
-          const profile = googleUser.getBasicProfile();
-          console.log('ID: ' + profile.getId());
-          console.log('Name: ' + profile.getName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail());
-        }, (error) => {
-          console.log(JSON.stringify(error, undefined, 2));
-        });
-      });
-    };
+  // //       auth2.attachClickHandler(document.getElementById('googleSignInBtn'), {}, (googleUser) => {
+  // //         const profile = googleUser.getBasicProfile();
+  // //         console.log('ID: ' + profile.getId());
+  // //         console.log('Name: ' + profile.getName());
+  // //         console.log('Image URL: ' + profile.getImageUrl());
+  // //         console.log('Email: ' + profile.getEmail());
+  // //       }, (error) => {
+  // //         console.log(JSON.stringify(error, undefined, 2));
+  // //       });
+  // //     });
+  // //   };
 
-    initializeGoogleSignIn();
-  }, []);
+  // //   initializeGoogleSignIn();
+  // // }, []);
   return (
-    <section className="bg-black">
+    <section>
       <div className="flex flex-col lg:flex-row md:flex-row items-center justify-between">
         <div className="lg:pl-[40px] md:pl-[40px] pl-0">
           <img src={NavbarItems.logo} alt="Logo" className="w-20 h-15" />
