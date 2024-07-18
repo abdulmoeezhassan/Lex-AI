@@ -7,7 +7,7 @@ export const NavbarItems = {
     },
     {
       title: 'About us',
-      href: '/About-Us'
+      href: '/About'
     },
     {
       title: 'Services',

@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { NavbarItems } from "../../constants/navbar";
 
 export const Navbar = () => {

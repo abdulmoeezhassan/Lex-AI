@@ -16,7 +16,7 @@ export const Services = () => {
                 key={index}
                 className="about-us-section bg-white rounded-lg shadow-lg mb-6 p-6 transition duration-300 hover:shadow-xl transform hover:-translate-y-1"
               >
-                <img className="mb-4" src={ser.image} />
+                <img className="mb-4" src={ser.image} alt="img"/>
                 <h1 className="text-black font-bold text-3xl ">{ser.heading}</h1>
                 <div
                   dangerouslySetInnerHTML={{ __html: ser.description }}
