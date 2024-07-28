@@ -1,0 +1,27 @@
+export const admin=[
+    {
+        name:"Moeez",
+        email:"moeez@gmail.com",
+        latestSearch:"Hello",
+    },
+    {
+        name:"Moeez",
+        email:"moeez@gmail.com",
+        latestSearch:"Hello",
+    },
+    {
+        name:"Moeez",
+        email:"moeez@gmail.com",
+        latestSearch:"Hello",
+    },
+    {
+        name:"Moeez",
+        email:"moeez@gmail.com",
+        latestSearch:"Hello",
+    },
+    {
+        name:"Moeez",
+        email:"moeez@gmail.com",
+        latestSearch:"Hello",
+    }
+]

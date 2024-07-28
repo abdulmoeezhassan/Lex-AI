@@ -6,6 +6,7 @@ import { Footer } from "./components/footer/footer";
 import { AboutUs } from "./components/aboutUs/aboutUs";
 import { Services } from "./components/services/services";
 import { ChatUI } from "./components/chatUI/chatUI";
+import { AdminDashboard } from "./components/adminDashbard/adminDashboard";
 
 export const App = () => {
   return (
@@ -28,6 +29,9 @@ export const App = () => {
         <Route path="/Chat" element={<div>
           <Navbar />
           <ChatUI />
+        </div>} />
+        <Route path="/Admin" element={<div>
+        <AdminDashboard/>
         </div>} />
       </Routes>
     </BrowserRouter>
