@@ -7,7 +7,7 @@ import { AboutUs } from "./components/aboutUs/aboutUs";
 import { Services } from "./components/services/services";
 import { ChatUI } from "./components/chatUI/chatUI";
 import { AdminDashboard } from "./components/adminDashbard/adminDashboard";
-
+import { ContactUs } from "./components/contactUs/contactUs";
 export const App = () => {
   return (
     <BrowserRouter>
@@ -32,6 +32,10 @@ export const App = () => {
         </div>} />
         <Route path="/Admin" element={<div>
         <AdminDashboard/>
+        </div>} />
+        <Route path="/Contact Us" element={<div>
+        <Navbar />
+        <ContactUs/>
         </div>} />
       </Routes>
     </BrowserRouter>

@@ -6,7 +6,7 @@ import { Footer } from "../footer/footer";
 
 export const AdminDashboard = () => {
   return (
-    <section className="min-h-screen bg-gray-800 overflow-x-hidden">
+    <section className="min-h-screen overflow-x-hidden">
       <div className="flex flex-col lg:flex-row md:flex-row items-center justify-between">
         <div className="lg:pl-9 md:pl-9 p-0 pt-5">
           <img src="/assets/images/logo.png" alt="App logo" className="w-20 h-15" />

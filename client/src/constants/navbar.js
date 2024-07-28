@@ -12,6 +12,10 @@ export const NavbarItems = {
     {
       title: 'Services',
       href: '/Services'
+    },
+    {
+      title: 'Contact Us',
+      href: '/Contact Us'
     }
   ],
 };
