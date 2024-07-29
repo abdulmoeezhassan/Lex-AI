@@ -16,7 +16,8 @@ export const ContactUs = () => {
   })
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFromData((prevData) => ({ ...prevData, [name]: value }))
+    setFromData((prevData) => ({ ...prevData, [name]: value }));
+    console.log(formData);
   };
 
   const ValidateFrom = () => {
@@ -44,7 +45,7 @@ export const ContactUs = () => {
       return;
     }
     try {
-      const SubmitForm = await axios.post(`${process.env.REACT_APP_SERVER}`, formData);
+      const SubmitForm = await axios.post(`${process.env.REACT_APP_SERVER}/api/contact`, formData);
       if (SubmitForm) {
         console.log("Form Submitted Successfully");
       }
