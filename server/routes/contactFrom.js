@@ -3,8 +3,7 @@ const createContactForm = require("../controllers/contactForm.js");
 
 const router = express.Router();
 
-router.post('/api/contact', createContactForm);
+router.post('/contact', createContactForm);
 
 
-exports.router =  router;
-
+module.exports =  router  ;

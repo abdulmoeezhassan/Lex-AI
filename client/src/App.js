@@ -8,6 +8,12 @@ import { Services } from "./components/services/services";
 import { ChatUI } from "./components/chatUI/chatUI";
 import { AdminDashboard } from "./components/adminDashbard/adminDashboard";
 import { ContactUs } from "./components/contactUs/contactUs";
+import { Billing } from "./components/billing/billing";
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_51PiVILRuyWvYsE9N2L4wsSeCwrIaWMMc6m4af4ZizxviRXDhSzkhYSlFMZND7tCxFAxYFaxAKvkb3d69iVObOQ7v00qIDnqvoG');
+
 export const App = () => {
   return (
     <BrowserRouter>
@@ -37,6 +43,13 @@ export const App = () => {
         <Navbar />
         <ContactUs/>
         </div>} />
+        <Route path="/billing" element={
+          <Elements stripe={stripePromise}>
+          <Navbar />
+            <Billing />
+            <Footer />
+          </Elements>
+        } />
       </Routes>
     </BrowserRouter>
   );

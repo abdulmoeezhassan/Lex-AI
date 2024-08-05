@@ -1,9 +1,9 @@
-import client from "../models/models.";
+const client = require('../models/db.js');
 
 const createContactForm = async (req, res) => {
     try {
         const { formData } = req.body;
-
+         console.log("Contact Body",formData)
         const createForm = await client.query('INSERT INTO Contact_Form (Full_Name, Email, Message) VALUES ($1, $2, $3) RETURNING *', [formData.fullName, formData.email, formData.message]);
 
         if (createForm.rows.length > 0) {
@@ -17,4 +17,4 @@ const createContactForm = async (req, res) => {
     }
 };
 
-module.exports = { createContactForm };
+module.exports = createContactForm ;

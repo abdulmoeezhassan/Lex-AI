@@ -41,11 +41,16 @@ export const ContactUs = () => {
     return isValid;
   }
   const handleSubmit = async (event) => {
-    if (!ValidateFrom()) {
-      return;
-    }
+    event.preventDefault();
+    // if (!ValidateFrom()) {
+    //   return;
+    // }
     try {
-      const SubmitForm = await axios.post(`${process.env.REACT_APP_SERVER}/api/contact`, formData);
+      const SubmitForm = await axios.post(`${process.env.REACT_APP_SERVER}/api/user/contact`, formData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
       if (SubmitForm) {
         console.log("Form Submitted Successfully");
       }
