@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements, CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from "axios";
 
-const stripePromise = loadStripe("pk_test_51PiVILRuyWvYsE9N2L4wsSeCwrIaWMMc6m4af4ZizxviRXDhSzkhYSlFMZND7tCxFAxYFaxAKvkb3d69iVObOQ7v00qIDnqvoG");
 
 export const Billing = (props) => {
   const { price } = props;
@@ -15,8 +13,8 @@ export const Billing = (props) => {
   const elements = useElements();
 
   useEffect(() => {
-    setPrice(price);
-  }, [price]);
+    setPrice(50);
+  }, []);
 
   const handleError = () => {
     let newError = {};
@@ -30,8 +28,6 @@ export const Billing = (props) => {
 
     if (Object.keys(error).length === 0) {
       const cardNumberElement = elements.getElement(CardNumberElement);
-      const cardExpiryElement = elements.getElement(CardExpiryElement);
-      const cardCvcElement = elements.getElement(CardCvcElement);
 
       const { error, token } = await stripe.createToken(cardNumberElement, {
         name: CardholderName,
@@ -40,12 +36,13 @@ export const Billing = (props) => {
       if (error) {
         console.log(error);
       } else {
-        axios.post(`${process.env.REACT_APP_SERVER}/api/user/billing`, {
+        axios.post(`http://localhost:3002/api/user/billing`, {
           token: token.id,
           amount: Price,
         })
         .then(response => {
           console.log(response);
+          alert("Payment Successfull");
         })
         .catch(error => {
           console.log(error);

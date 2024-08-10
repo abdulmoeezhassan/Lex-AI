@@ -6,4 +6,4 @@ const router = express.Router();
 router.post('/contact', createContactForm);
 
 
-module.exports =  router  ;
+module.exports = router;

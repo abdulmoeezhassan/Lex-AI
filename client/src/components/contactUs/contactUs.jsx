@@ -42,17 +42,14 @@ export const ContactUs = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // if (!ValidateFrom()) {
-    //   return;
-    // }
+    if (!ValidateFrom()) {
+      return;
+    }
     try {
-      const SubmitForm = await axios.post(`${process.env.REACT_APP_SERVER}/api/user/contact`, formData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      const SubmitForm = await axios.post(`http://localhost:3002/api/user/contact`, formData);
       if (SubmitForm) {
         console.log("Form Submitted Successfully");
+        alert("Form Submitted Successfully");
       }
       else {
         console.log("Error is Submitting Form");

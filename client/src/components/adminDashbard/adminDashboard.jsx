@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
-import { admin } from "../../constants/constants";
 import { Footer } from "../footer/footer";  
+import axios from "axios";
 
 export const AdminDashboard = () => {
+  const [userData, setUserData]=useState({});
+  const getUserData = async() => {
+    const getdata = await axios.get('http://localhost:3002/api/user/getusers');
+    if(getdata){
+      console.log("Fetch Data Successfully", getdata);
+      setUserData(getdata.data);
+    }
+    else{
+      console.log("Something went wrong");
+    }
+  }
+  useEffect(() =>{
+   getUserData();
+  },[]);
+  useEffect(()=>{
+    console.log(userData,"User data");
+  },[userData])
   return (
     <section className="min-h-screen overflow-x-hidden">
       <div className="flex flex-col lg:flex-row md:flex-row items-center justify-between">
@@ -61,17 +78,17 @@ export const AdminDashboard = () => {
         <table className="border-collapse border border-white rounded-xl w-[90vw] lg:w-3/4 shadow-lg">
           <thead className="bg-white">
             <tr>
-              <th className="border border-black p-3 rounded-tl-xl">Name</th>
-              <th className="border border-black p-3">Email</th>
-              <th className="border border-black p-3 rounded-tr-xl">Latest Search</th>
+              <th className="border border-black p-3 rounded-tl-xl">UserId</th>
+              <th className="border border-black p-3">Full Name</th>
+              <th className="border border-black p-3 rounded-tr-xl">Email</th>
             </tr>
           </thead>
           <tbody className="bg-gray-700">
-            {admin.map((admin, index) => (
+            {userData.map((data, index) => (
               <tr key={index} className="border border-white bg-white rounded-tl-xl">
-                <td className="border border-black p-3">{admin.name}</td>
-                <td className="border border-black p-3">{admin.email}</td>
-                <td className="border border-black p-3">{admin.latestSearch}</td>
+                <td className="border border-black p-3">{data.user_id}</td>
+                <td className="border border-black p-3">{data.full_name}</td>
+                <td className="border border-black p-3">{data.email}</td>
               </tr>
             ))}
           </tbody>
