@@ -27,7 +27,7 @@ const createUser = async (req, res) => {
 const getAllUsers = async(req, res) => {
     console.log("Hello")
     try{
-          const getUsers = await client.query('SELECT * FROM User_Table');
+          const getUsers = await client.query('SELECT DISTINCT * FROM User_Table');
           if(getUsers){
              const rows = getUsers.rows;
               res.status(200).json(rows);

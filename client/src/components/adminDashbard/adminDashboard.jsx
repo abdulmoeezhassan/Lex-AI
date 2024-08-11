@@ -5,7 +5,7 @@ import { Footer } from "../footer/footer";
 import axios from "axios";
 
 export const AdminDashboard = () => {
-  const [userData, setUserData]=useState({});
+  const [userData, setUserData]=useState([]);
   const getUserData = async() => {
     const getdata = await axios.get('http://localhost:3002/api/user/getusers');
     if(getdata){
